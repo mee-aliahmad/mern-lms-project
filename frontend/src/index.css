@@ -1,0 +1,624 @@
+/* ============================================
+   LearnHub LMS - Global Styles
+   Modern dark theme with glassmorphism effects
+   ============================================ */
+
+/* ---------- CSS Variables ---------- */
+:root {
+  --primary: #6c63ff;
+  --primary-dark: #5a52d5;
+  --primary-light: #8b83ff;
+  --secondary: #1e1e2f;
+  --bg-dark: #0f0f1a;
+  --bg-card: #1a1a2e;
+  --bg-glass: rgba(26, 26, 46, 0.8);
+  --text-primary: #e4e4f0;
+  --text-secondary: #9e9eb8;
+  --border-color: rgba(108, 99, 255, 0.15);
+  --gradient: linear-gradient(135deg, #6c63ff 0%, #e040fb 100%);
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --shadow-glow: 0 0 20px rgba(108, 99, 255, 0.3);
+}
+
+/* ---------- Global Reset ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+/* ---------- Links ---------- */
+a {
+  color: var(--primary-light);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover {
+  color: var(--primary);
+}
+
+/* ---------- Gradient Text ---------- */
+.gradient-text {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ---------- Navbar Glass Effect ---------- */
+.navbar-glass {
+  background: var(--bg-glass) !important;
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.8rem 0;
+  transition: all 0.3s;
+}
+
+.navbar-glass .nav-link {
+  color: var(--text-primary) !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.navbar-glass .nav-link:hover {
+  background: rgba(108, 99, 255, 0.1);
+  color: var(--primary-light) !important;
+}
+
+.brand-text {
+  font-size: 1.4rem;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.navbar-toggler {
+  border-color: var(--border-color) !important;
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);
+}
+
+.dropdown-menu {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 12px !important;
+  box-shadow: var(--shadow) !important;
+}
+
+.dropdown-item {
+  color: var(--text-primary) !important;
+  padding: 0.6rem 1rem !important;
+  transition: all 0.2s;
+}
+
+.dropdown-item:hover {
+  background: rgba(108, 99, 255, 0.15) !important;
+  color: var(--primary-light) !important;
+}
+
+.dropdown-divider {
+  border-color: var(--border-color) !important;
+}
+
+/* ---------- Hero Section ---------- */
+.hero-section {
+  background: linear-gradient(135deg, var(--bg-dark) 0%, var(--secondary) 50%, var(--bg-dark) 100%);
+  padding: 5rem 0 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(108, 99, 255, 0.08) 0%, transparent 50%);
+  animation: rotate 30s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(108, 99, 255, 0.15);
+  color: var(--primary-light);
+  padding: 0.4rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid var(--border-color);
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  max-width: 540px;
+}
+
+.hero-illustration {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.min-vh-75 {
+  min-height: 75vh;
+}
+
+/* ---------- Button Styles ---------- */
+.btn-primary {
+  background: var(--gradient) !important;
+  border: none !important;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-outline-primary {
+  border-color: var(--primary) !important;
+  color: var(--primary-light) !important;
+  border-radius: 10px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.btn-outline-primary:hover {
+  background: var(--primary) !important;
+  color: white !important;
+  transform: translateY(-2px);
+}
+
+.btn-outline-light {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  color: var(--text-primary) !important;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+
+.btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  transform: translateY(-2px);
+}
+
+.btn-glow {
+  box-shadow: 0 0 15px rgba(108, 99, 255, 0.4);
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 25px rgba(108, 99, 255, 0.6);
+}
+
+/* ---------- Cards ---------- */
+.card {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 16px !important;
+  transition: all 0.3s ease;
+  color: var(--text-primary) !important;
+}
+
+.feature-card {
+  cursor: pointer;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-glow);
+  border-color: var(--primary) !important;
+}
+
+.feature-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 16px;
+  background: rgba(108, 99, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.role-card {
+  border-left: 4px solid var(--primary) !important;
+}
+
+.role-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
+
+/* ---------- Course Cards ---------- */
+.course-card {
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-glow);
+}
+
+.course-card-header {
+  background: linear-gradient(135deg, var(--primary) 0%, #e040fb 100%);
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.course-card-icon {
+  color: white;
+  opacity: 0.9;
+}
+
+/* ---------- Auth Cards ---------- */
+.auth-card {
+  border: 1px solid var(--border-color) !important;
+  backdrop-filter: blur(10px);
+}
+
+/* ---------- Dashboard Stat Cards ---------- */
+.dashboard-stat-card {
+  transition: all 0.3s ease;
+}
+
+.dashboard-stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-glow);
+}
+
+.stat-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- Stats Section ---------- */
+.stats-section {
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* ---------- Form Controls ---------- */
+.form-control,
+.form-select {
+  background: var(--bg-dark) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-primary) !important;
+  border-radius: 10px !important;
+  padding: 0.7rem 1rem !important;
+  transition: all 0.3s;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 0.2rem rgba(108, 99, 255, 0.25) !important;
+}
+
+.form-control::placeholder {
+  color: var(--text-secondary) !important;
+}
+
+.form-label {
+  color: var(--text-primary);
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+}
+
+.form-text {
+  color: var(--text-secondary) !important;
+}
+
+.form-select option {
+  background: var(--bg-dark);
+  color: var(--text-primary);
+}
+
+/* ---------- Tables ---------- */
+.table {
+  color: var(--text-primary) !important;
+  --bs-table-bg: transparent;
+}
+
+.table thead th {
+  background: rgba(108, 99, 255, 0.1) !important;
+  color: var(--primary-light) !important;
+  border-bottom: 2px solid var(--border-color) !important;
+  font-weight: 600;
+  padding: 1rem !important;
+}
+
+.table tbody td {
+  border-bottom: 1px solid var(--border-color) !important;
+  padding: 0.8rem 1rem !important;
+  vertical-align: middle;
+}
+
+.table-hover tbody tr:hover {
+  background: rgba(108, 99, 255, 0.05) !important;
+}
+
+/* ---------- Badges ---------- */
+.badge {
+  font-weight: 500;
+  padding: 0.4em 0.8em;
+  border-radius: 8px;
+}
+
+/* ---------- Progress Bar ---------- */
+.progress {
+  background: rgba(108, 99, 255, 0.1) !important;
+  border-radius: 10px;
+  height: 8px;
+}
+
+.progress-bar {
+  background: var(--gradient) !important;
+  border-radius: 10px;
+}
+
+/* ---------- Alerts ---------- */
+.alert-danger {
+  background: rgba(220, 53, 69, 0.15) !important;
+  border-color: rgba(220, 53, 69, 0.3) !important;
+  color: #ff6b7a !important;
+  border-radius: 10px;
+}
+
+/* ---------- Modals ---------- */
+.modal-content {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 16px !important;
+  color: var(--text-primary);
+}
+
+.modal-header {
+  border-bottom: 1px solid var(--border-color) !important;
+}
+
+.modal-footer {
+  border-top: 1px solid var(--border-color) !important;
+}
+
+.btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* ---------- List Group ---------- */
+.list-group-item {
+  background: transparent !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+/* ---------- Footer ---------- */
+.footer-section {
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-color);
+}
+
+/* ---------- CTA Section ---------- */
+.cta-section {
+  background: linear-gradient(135deg, rgba(108, 99, 255, 0.1) 0%, rgba(224, 64, 251, 0.1) 100%);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* ---------- Misc ---------- */
+hr {
+  border-color: var(--border-color) !important;
+  opacity: 0.5;
+}
+
+.text-muted {
+  color: var(--text-secondary) !important;
+}
+
+.bg-light {
+  background: rgba(108, 99, 255, 0.05) !important;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  .hero-section {
+    padding: 3rem 0 2rem;
+  }
+}
+
+/* ---------- Spinner ---------- */
+.spinner-border {
+  color: var(--primary) !important;
+}
+
+/* ---------- Page Loading Transition ---------- */
+.page-transition {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Toast Override ---------- */
+.Toastify__toast-theme--colored.Toastify__toast--success {
+  background: #10b981 !important;
+}
+
+.Toastify__toast-theme--colored.Toastify__toast--error {
+  background: #ef4444 !important;
+}
+
+.Toastify__toast-theme--colored.Toastify__toast--info {
+  background: var(--primary) !important;
+}
+
+/* ---------- Profile Page ---------- */
+.profile-header-card {
+  border: none !important;
+}
+
+.profile-banner {
+  height: 160px;
+  background: var(--gradient);
+  position: relative;
+}
+
+.profile-banner::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(transparent, var(--bg-card));
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid var(--bg-card);
+  box-shadow: 0 4px 20px rgba(108, 99, 255, 0.4);
+  position: relative;
+  z-index: 1;
+}
+
+.profile-avatar-text {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.profile-detail-card {
+  transition: all 0.3s ease;
+}
+
+.profile-detail-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow);
+  border-color: var(--primary) !important;
+}
+
+.profile-detail-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ---------- Input Group Fix ---------- */
+.input-group .btn-outline-secondary {
+  border-color: var(--border-color) !important;
+  color: var(--text-secondary) !important;
+  background: var(--bg-dark) !important;
+}
+
+.input-group .btn-outline-secondary:hover {
+  color: var(--primary-light) !important;
+  background: rgba(108, 99, 255, 0.1) !important;
+}
+
+/* ---------- Accordion (Lesson Viewer) ---------- */
+.accordion-item {
+  background: var(--bg-dark) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+}
+
+.accordion-button {
+  background: var(--bg-dark) !important;
+  color: var(--text-primary) !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 1rem 1.2rem !important;
+}
+
+.accordion-button:not(.collapsed) {
+  background: rgba(108, 99, 255, 0.1) !important;
+  color: var(--primary-light) !important;
+}
+
+.accordion-button::after {
+  filter: invert(1) brightness(2);
+}
+
+.accordion-body {
+  background: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+  border-top: 1px solid var(--border-color) !important;
+}
+
+.lesson-content {
+  background: rgba(108, 99, 255, 0.03);
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+
