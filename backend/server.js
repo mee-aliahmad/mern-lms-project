@@ -1,11 +1,11 @@
-const express = require('express');
-const dotenv = require('dotenv');
-const cors = require('cors');
-const connectDB = require('./config/db');
-const errorHandler = require('./middleware/errorHandler');
+import express, { json, urlencoded } from 'express';
+import { config } from 'dotenv';
+import cors from 'cors';
+import connectDB from './config/db';
+import errorHandler from './middleware/errorHandler';
 
 // Load environment variables
-dotenv.config();
+config();
 
 // Connect to MongoDB
 connectDB();
@@ -22,10 +22,14 @@ app.use(
   })
 );
 // Parse JSON request bodies
-app.use(express.json());
+app.use(json());
 
 // Parse URL-encoded bodies
-app.use(express.urlencoded({ extended: true }));
+app.use(urlencoded({ extended: true }));
+
+app.get("/", (req, res) => {
+  res.send("🚀 LMS Backend is Running Successfully");
+});
 
 // ---------- API Routes ----------
 
