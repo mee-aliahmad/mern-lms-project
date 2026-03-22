@@ -148,11 +148,6 @@ npm install
 ```
 
 Edit `.env` with your MongoDB connection:
-```env
-PORT=5000
-MONGO_URI=mongodb://localhost:27017/lms_db
-JWT_SECRET=your_super_secret_jwt_key_change_this_in_production
-```
 
 Start the backend:
 ```bash
