@@ -17,11 +17,10 @@ const app = express();
 // Enable CORS for frontend
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || 'https://mern-lms-project-chi.vercel.app/',
+    origin: process.env.CLIENT_URL || "https://mern-lms-project-chi.vercel.app",
     credentials: true,
   })
 );
-
 // Parse JSON request bodies
 app.use(express.json());
 

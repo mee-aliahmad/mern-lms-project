@@ -1,0 +1,5 @@
+user:meeahmad59_db_user
+pass:WCOvsMhW5u316Ux8
+URI:mongodb+srv://meeahmad59_db_user:WCOvsMhW5u316Ux8@cluster0.kqrf9zz.mongodb.net/
+GitHub Repository Link: https://github.com/mee-aliahmad/mern-lms-project
+Live Deployment Link : https://mern-lms-project-chi.vercel.app/
