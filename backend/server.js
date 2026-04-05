@@ -1,11 +1,11 @@
-import express, { json, urlencoded } from 'express';
-import { config } from 'dotenv';
-import cors from 'cors';
-import connectDB from './config/db';
-import errorHandler from './middleware/errorHandler';
+const express = require('express');
+const dotenv = require('dotenv');
+const cors = require('cors');
+const connectDB = require('./config/db');
+const errorHandler = require('./middleware/errorHandler');
 
 // Load environment variables
-config();
+dotenv.config();
 
 // Connect to MongoDB
 connectDB();
@@ -17,19 +17,19 @@ const app = express();
 // Enable CORS for frontend
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "https://mern-lms-project-chi.vercel.app",
+    origin: [
+      process.env.CLIENT_URL || "https://mern-lms-project-chi.vercel.app",
+      "http://localhost:5173",
+      "http://localhost:3000",
+    ].filter(Boolean),
     credentials: true,
   })
 );
 // Parse JSON request bodies
-app.use(json());
+app.use(express.json());
 
 // Parse URL-encoded bodies
-app.use(urlencoded({ extended: true }));
-
-app.get("/", (req, res) => {
-  res.send("🚀 LMS Backend is Running Successfully");
-});
+app.use(express.urlencoded({ extended: true }));
 
 // ---------- API Routes ----------
 
