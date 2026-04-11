@@ -31,6 +31,17 @@ app.use(express.json());
 // Parse URL-encoded bodies
 app.use(express.urlencoded({ extended: true }));
 
+// ---------- Root Route ----------
+// Returns a welcome message so the base URL doesn't 404
+app.get('/', (req, res) => {
+  res.status(200).json({
+    status: 'OK',
+    message: 'MERN LMS API Server',
+    api: '/api',
+    health: '/api/health',
+  });
+});
+
 // ---------- API Routes ----------
 
 app.use('/api/auth', require('./routes/authRoutes'));
