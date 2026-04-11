@@ -15,14 +15,22 @@ const app = express();
 // ---------- Middleware ----------
 
 // Enable CORS for frontend
+const allowedOrigins = [
+  "https://mern-lms-project-chi.vercel.app",
+  "http://localhost:5173",
+  "http://localhost:3000",
+];
+// Also add CLIENT_URL from env if set and not already in the list
+if (process.env.CLIENT_URL && !allowedOrigins.includes(process.env.CLIENT_URL)) {
+  allowedOrigins.push(process.env.CLIENT_URL);
+}
+
 app.use(
   cors({
-    origin: [
-      process.env.CLIENT_URL || "https://mern-lms-project-chi.vercel.app",
-      "http://localhost:5173",
-      "http://localhost:3000",
-    ].filter(Boolean),
+    origin: allowedOrigins,
     credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
   })
 );
 // Parse JSON request bodies
